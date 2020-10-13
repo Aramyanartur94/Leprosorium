@@ -51,7 +51,7 @@ get '/details/:post_id' do
 	results = @db.execute 'select * from Posts where id = ?', [post_id]
 	# выбираем этот один пост в переменную @row
 	@row = results[0]
-	# возвращаем представление :details erb 
+	# возвращаем представление details.erb 
 	erb :details
 end
 
@@ -70,4 +70,16 @@ post '/new' do
 	@db.execute 'Insert into Posts (content, created_date) values (?, datetime())', [content]
 	# перенаправление на главную страницу
 	redirect to '/'
+end
+
+# обработчик post-запроса /details/...
+# (браузер отправляет данные на сервер, мы их принемаем)
+post '/details/:post_id' do
+	# получаем переменную из url'а 
+	post_id = params[:post_id]
+
+	# получаем переменную из post-запроса
+	content = params[:content]
+
+	erb "You typed comment #{content} dor post #{post_id}"
 end
