@@ -1,8 +1,10 @@
-<h2>Add new Post</h2>
+<h2>Добавить новость:</h2>
 <p>
 	<form action="/new" method="POST" role="form">
-		<textarea name="content" class="form-control" style="width: 600px" rows="6" placeholder="Type post text here"></textarea>
+		<p><textarea rows="2" cols="45" name="post[namenew]"></textarea></p>
+		<br />
+		<p><textarea rows="10" cols="100" name="post[content]"></textarea></p>
 		<br/>
-		<button type="submit" class="btn btn-primary">Add post</button>
+		<button type="submit" class="btn btn-success">Добавить новость</button>
 	</form>
 </p>
